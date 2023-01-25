@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Auth\Controllers\AuthController;
+use App\Framework\Http\Controllers\HomeController;
+use App\Subscription\Controllers\SubscriptionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/status', [HomeController::class, 'status']);
+
+Route::prefix('/auth')->name('auth.')->group(function () {
+    Route::post('/login-by-email', [AuthController::class, 'loginByEmail']);
+    Route::post('/register-by-email', [AuthController::class, 'registerByEmail']);
+});
+
+Route::prefix('/subscription')->name('subscription.')->group(function () {
+    Route::post('/', [SubscriptionController::class, 'index']);
+    Route::post('/save', [SubscriptionController::class, 'save']);
+});
