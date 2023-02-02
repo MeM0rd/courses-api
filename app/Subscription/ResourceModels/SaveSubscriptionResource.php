@@ -2,7 +2,7 @@
 
 namespace App\Subscription\ResourceModels;
 
-class SubscriptionResource
+class SaveSubscriptionResource
 {
     public int $id;
 

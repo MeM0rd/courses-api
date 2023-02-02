@@ -17,8 +17,8 @@ class SubscriptionAction
         $this->subscriptionQueries = $subscriptionQueries;
     }
 
-    public function execute(SubscriptionDTO $dto): ?Collection
+    public function execute(int $userId): ?Collection
     {
-        return $this->subscriptionQueries->findSubscriptionsByUserId($dto->userId);
+        return $this->subscriptionQueries->findSubscriptionsByUserId($userId);
     }
 }

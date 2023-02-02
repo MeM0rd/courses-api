@@ -11,7 +11,9 @@ class SubscriptionQueries
 {
     public function findSubscriptionsByUserId(int $userId): ?Collection
     {
-        return Subscription::whereUserId($userId)->get();
+        return Subscription::whereUserId($userId)
+            ->orderByDesc('id')
+            ->get();
     }
 
     public function findSubscriptionById(SubscriptionDTO $dto): ?Subscription
@@ -19,5 +21,14 @@ class SubscriptionQueries
         return Subscription::where('id', $dto->id)
             ->where('user_id', $dto->userId)
             ->first();
+    }
+
+    public function searchSubscriptions(string $search, int $userId)
+    {
+        return Subscription::whereUserId($userId)
+            ->where('name', 'ilike', "%$search%")
+            ->orWhere('note', 'ilike', "%$search%")
+            ->orWhere('cost', 'ilike', "%$search%")
+            ->get();
     }
 }

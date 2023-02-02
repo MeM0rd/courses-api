@@ -36,7 +36,7 @@ class SaveSubscriptionAction
         return $model;
     }
 
-    private function collectModel(?Subscription $model, SubscriptionDTO $dto): Subscription
+    private function collectModel(Subscription $model, SubscriptionDTO $dto): Subscription
     {
         $model->user_id  = $dto->userId;
         $model->name     = $dto->name;

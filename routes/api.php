@@ -31,4 +31,5 @@ Route::prefix('/auth')->name('auth.')->group(function () {
 Route::prefix('/subscription')->name('subscription.')->group(function () {
     Route::post('/', [SubscriptionController::class, 'index']);
     Route::post('/save', [SubscriptionController::class, 'save']);
+    Route::get('/search', [SubscriptionController::class, 'search']);
 });

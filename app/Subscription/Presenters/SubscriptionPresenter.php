@@ -3,15 +3,13 @@
 namespace App\Subscription\Presenters;
 
 use App\Framework\Models\Subscription;
-use App\Subscription\ResourceModels\SubscriptionResource;
+use App\Subscription\ResourceModels\SaveSubscriptionResource;
 use Ramsey\Collection\Collection;
 
 class SubscriptionPresenter
 {
-    public function present(\Illuminate\Support\Collection $subscriptions): array
+    public function present(\Illuminate\Support\Collection | Subscription $subscriptions): array
     {
-        $resource = new SubscriptionResource();
-
         $result = [];
 
         foreach ($subscriptions as $subscription) {
