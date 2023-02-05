@@ -12,12 +12,12 @@ class SubscriptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['sometimes', 'integer'],
+            'id' => ['sometimes','integer'],
             'user_id' => ['required','integer'],
-            'name' => ['sometimes', 'string'],
-            'cost' => ['sometimes', 'numeric'],
-            'currency' => ['sometimes', 'string'],
-            'note' => ['sometimes', 'string']
+            'name' => ['sometimes','string'],
+            'cost' => ['sometimes','numeric'],
+            'currency' => ['sometimes','string'],
+            'note' => ['sometimes','string','nullable']
         ];
     }
 }

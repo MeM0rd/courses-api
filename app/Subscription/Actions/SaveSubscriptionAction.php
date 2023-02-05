@@ -18,7 +18,7 @@ class SaveSubscriptionAction
     public function execute(SubscriptionDTO $dto): Subscription
     {
         if ($dto->id && $dto->userId) {
-            $model = $this->subscriptionQueries->findSubscriptionById($dto);
+            $model = $this->subscriptionQueries->findSubscriptionById($dto->userId, $dto->id);
 
             $model = $this->collectModel($model, $dto);
 

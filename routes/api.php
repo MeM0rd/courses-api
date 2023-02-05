@@ -32,4 +32,5 @@ Route::prefix('/subscription')->name('subscription.')->group(function () {
     Route::post('/', [SubscriptionController::class, 'index']);
     Route::post('/save', [SubscriptionController::class, 'save']);
     Route::get('/search', [SubscriptionController::class, 'search']);
+    Route::delete('/delete', [SubscriptionController::class, 'delete']);
 });

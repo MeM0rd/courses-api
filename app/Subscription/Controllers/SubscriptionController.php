@@ -7,6 +7,7 @@ use App\Framework\Http\Controllers\Controller;
 use App\Subscription\Actions\SaveSubscriptionAction;
 use App\Subscription\Actions\SubscriptionAction;
 use App\Subscription\Factories\SubscriptionFactory;
+use App\Subscription\Presenters\DeleteSubscriptionAction;
 use App\Subscription\Presenters\SaveSubscriptionPresenter;
 use App\Subscription\Presenters\SearchSubscriptionPresenter;
 use App\Subscription\Presenters\SubscriptionPresenter;
@@ -61,5 +62,13 @@ class SubscriptionController extends Controller
         $result = $this->searchSubscriptionPresenter->search($text, $userId);
 
         return $this->success($result);
+    }
+
+    public function delete(SubscriptionRequest $request, DeleteSubscriptionAction $action)
+    {
+        $userId = $request->get('user_id');
+        $id = $request->get('id');
+
+        $action = $action->execute($userId, $id);
     }
 }

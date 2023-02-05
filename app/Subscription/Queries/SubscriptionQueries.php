@@ -16,14 +16,14 @@ class SubscriptionQueries
             ->get();
     }
 
-    public function findSubscriptionById(SubscriptionDTO $dto): ?Subscription
+    public function findSubscriptionById(int $userId, int $id): ?Subscription
     {
-        return Subscription::where('id', $dto->id)
-            ->where('user_id', $dto->userId)
+        return Subscription::where('id', $id)
+            ->where('user_id', $userId)
             ->first();
     }
 
-    public function searchSubscriptions(string $search, int $userId)
+    public function searchSubscriptions(string $search, int $userId): Collection
     {
         return Subscription::whereUserId($userId)
             ->where('name', 'ilike', "%$search%")
