@@ -22,14 +22,17 @@ services:
 
   postgres:
     image: postgres:13.3
+    environment:
+        POSTGRES_DB: secret
+        POSTGRES_USER: secret
+        POSTGRES_PASSWORD: secret
+        POSTGRES_ROOT_PASSWORD: secret
+        PGDATA: "/etc/postgresql/15/main/"
     restart: unless-stopped
+    volumes:
+      - ./data:/etc/postgresql/15/main/
     ports:
       - "5432:5432"
-    environment:
-      POSTGRES_DB: secret
-      POSTGRES_USER: secret
-      POSTGRES_PASSWORD: secret
-      POSTGRES_ROOT_PASSWORD: secret
     networks:
       - laravel
 

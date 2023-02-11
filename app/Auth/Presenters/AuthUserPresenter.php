@@ -3,8 +3,8 @@
 namespace App\Auth\Presenters;
 
 use App\Auth\ResourceModels\AuthUserResource;
-use Illuminate\Contracts\Auth\Authenticatable;
 use App\Framework\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 class AuthUserPresenter
 {

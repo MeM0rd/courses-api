@@ -2,10 +2,7 @@
 
 namespace App\Subscription\Actions;
 
-use App\Framework\Models\Subscription;
-use App\Subscription\DTOs\SubscriptionDTO;
 use App\Subscription\Queries\SubscriptionQueries;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
 class SubscriptionAction

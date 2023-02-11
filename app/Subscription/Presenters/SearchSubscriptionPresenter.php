@@ -3,7 +3,6 @@
 namespace App\Subscription\Presenters;
 
 use App\Subscription\Queries\SubscriptionQueries;
-use Illuminate\Database\Eloquent\Collection;
 
 class SearchSubscriptionPresenter extends SubscriptionPresenter
 {

@@ -3,8 +3,6 @@
 namespace App\Subscription\Queries;
 
 use App\Framework\Models\Subscription;
-use App\Subscription\DTOs\SubscriptionDTO;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 
 class SubscriptionQueries

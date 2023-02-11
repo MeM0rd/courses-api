@@ -5,10 +5,8 @@ namespace App\Auth\Actions;
 use App\Auth\DTOs\RegisterDTO;
 use App\Auth\Exceptions\EmailValidationException;
 use App\Auth\Queries\AuthQueries;
-use App\Auth\Queries\RegisterQueries;
 use App\Framework\Models\User;
 use Illuminate\Auth\AuthManager;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Hashing\Hasher;
 
 class RegisterAction
@@ -18,8 +16,6 @@ class RegisterAction
     protected Hasher $hasher;
 
     protected AuthQueries $authQueries;
-
-    protected RegisterQueries $registerQueries;
 
     public function __construct(AuthManager $authManager, Hasher $hasher, AuthQueries $authQueries)
     {
