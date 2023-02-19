@@ -8,8 +8,6 @@ class HomeController extends Controller
 {
     public function status()
     {
-        $a = User::whereId(1)->first();
-
-        return $a;
+        return User::whereId(1) ? User::whereId(1) : 'DB is emptu';
     }
 }
